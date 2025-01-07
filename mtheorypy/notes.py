@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 
 SHARP_NOTES = ["C", "C#", "D", "D#", "E",
@@ -24,3 +26,6 @@ class Note:
             return SHARP_NOTES[self.number]
         else:
             return FLAT_NOTES[self.number]
+
+    def is_enharmonic(self, target_note: Note) -> bool:
+        return self.number == target_note.number
