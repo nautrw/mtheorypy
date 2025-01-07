@@ -12,7 +12,7 @@ class Note:
     length: int
     octave: int
 
-    def get_name(self, accidental: str = "#"):
+    def get_name(self, accidental: str = "#") -> str:
         if self.number not in range(11):
             raise IndexError(
                 f"note number out of bounds (0-11): {self.number}")
