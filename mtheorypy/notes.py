@@ -1,5 +1,10 @@
 from dataclasses import dataclass
 
+SHARP_NOTES = ["C", "C#", "D", "D#", "E",
+               "F", "F#", "G", "G#", "A", "A#", "B"]
+FLAT_NOTES = ["C", "Db", "D", "Eb", "E",
+              "F", "Gb", "G", "Ab", "A", "Bb", "B"]
+
 
 @dataclass
 class Note:
@@ -15,12 +20,7 @@ class Note:
         if accidental not in ["#", "b"]:
             raise ValueError("argument `accidental` must be either `#` or `b`")
 
-        sharp_notes = ["C", "C#", "D", "D#", "E",
-                       "F", "F#", "G", "G#", "A", "A#", "B"]
-        flat_notes = ["C", "Db", "D", "Eb", "E",
-                      "F", "Gb", "G", "Ab", "A", "Bb", "B"]
-
         if accidental == "#":
-            return sharp_notes[self.number]
+            return SHARP_NOTES[self.number]
         else:
-            return flat_notes[self.number]
+            return FLAT_NOTES[self.number]
