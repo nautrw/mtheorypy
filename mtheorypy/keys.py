@@ -28,7 +28,7 @@ BASE_SCALE = ["C", "D", "E", "F", "G", "A", "B"]
 class Key:
     sharps: int
 
-    def get_name(self) -> tuple:
+    def get_names(self) -> tuple:
         return KEYS[self.sharps + 7]
 
     def get_signature(self):
