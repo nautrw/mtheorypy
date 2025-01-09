@@ -28,10 +28,17 @@ BASE_SCALE = ["C", "D", "E", "F", "G", "A", "B"]
 class Key:
     sharps: int
 
+    def validate(self) -> None:
+        if self.sharps not in range(-7, 8):
+            raise IndexError(
+                f'number of sharps out of bounds (-7 to 7): {self.sharps}')
+
     def get_names(self) -> tuple:
+        self.validate()
         return KEYS[self.sharps + 7]
 
     def get_signature(self):
+        self.validate()
         accidentals = self.sharps
         signature = []
 
