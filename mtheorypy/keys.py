@@ -1,8 +1,5 @@
 from dataclasses import dataclass
 
-# TODO: fix this circular import
-# from notes import CIRCLE_OF_FIFTHS
-
 # (Major, Minor)
 KEYS = [
     (11, 8),  # Cb, Ab
