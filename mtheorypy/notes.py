@@ -2,6 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+# TODO: fix this circular import
+# from keys import Key
+
 SHARP_NOTES = ["C", "C#", "D", "D#", "E",
                "F", "F#", "G", "G#", "A", "A#", "B"]
 FLAT_NOTES = ["C", "Db", "D", "Eb", "E",

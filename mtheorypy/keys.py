@@ -1,27 +1,30 @@
 from dataclasses import dataclass
 
-from notes import CIRCLE_OF_FIFTHS
+# TODO: fix this circular import
+# from notes import CIRCLE_OF_FIFTHS
 
 # (Major, Minor)
 KEYS = [
-    (11, 8),  # Cb to Ab
-    (6, 3),   # Gb to Eb
-    (1, 10),  # Db to Bb
-    (8, 5),   # Ab to F
-    (3, 0),   # Eb to C
-    (10, 7),  # Bb to G
-    (5, 2),   # F to D
-    (0, 9),   # C to A
-    (7, 4),   # G to E
-    (2, 11),  # D to B
-    (9, 6),   # A to F#
-    (4, 1),   # E to C#
-    (11, 8),  # B to G#
-    (6, 3),   # F# to D#
-    (1, 10),  # C# to A#
+    (11, 8),  # Cb, Ab
+    (6, 3),   # Gb, Eb
+    (1, 10),  # Db, Bb
+    (8, 5),   # Ab, F
+    (3, 0),   # Eb, C
+    (10, 7),  # Bb, G
+    (5, 2),   # F, D
+    (0, 9),   # C, A
+    (7, 4),   # G, E
+    (2, 11),  # D, B
+    (9, 6),   # A, F#
+    (4, 1),   # E, C#
+    (11, 8),  # B, G#
+    (6, 3),   # F#, D#
+    (1, 10),  # C#, A#
 ]
 
 BASE_SCALE = [0, 2, 4, 5, 7, 9, 11]
+
+CIRCLE_OF_FIFTHS = [5, 0, 7, 2, 9, 4, 11]
 
 
 @dataclass
@@ -44,14 +47,9 @@ class Key:
 
         if self.sharps < 0:
             for i in range(-accidentals):
-                signature.append(
-                    f"{list(reversed(CIRCLE_OF_FIFTHS))[i]}b")
+                signature.append(list(reversed(CIRCLE_OF_FIFTHS))[i])
         else:
             for i in range(accidentals):
-                signature.append(f"{CIRCLE_OF_FIFTHS[i]}#")
+                signature.append(CIRCLE_OF_FIFTHS[i] + 1)
 
         return signature
-
-
-key = Key(-2)
-print(key.get_names())
