@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from itertools import cycle, islice
 
 # (Major, Minor)
 KEYS = [
@@ -50,3 +51,20 @@ class Key:
                 signature.append(CIRCLE_OF_FIFTHS[i] + 1)
 
         return signature
+
+    def get_notes(self):
+        self.validate()
+
+        signature = self.get_signature()
+        result = []
+        tonic_index = BASE_SCALE.index(abs(self.sharps))
+
+        if self.sharps in
+
+        for note in islice(cycle(BASE_SCALE), tonic_index, tonic_index + 7):
+            if note in signature:
+                result.append(note)
+            else:
+                result.append(note)
+
+        return result
