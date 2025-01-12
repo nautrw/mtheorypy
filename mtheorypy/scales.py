@@ -27,7 +27,8 @@ class Scale(Key):
             "minor": modify([2, 5, 6]),
             "pentatonic": base_scale[:3] + base_scale[4:6],
             "dorian": modify([2, 6]),
-            "phrygian": modify([1, 2, 5, 6])
+            "phrygian": modify([1, 2, 5, 6]),
+            "lydian": modify([3], False)
         }
 
         return scales_dict
