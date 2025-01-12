@@ -19,7 +19,6 @@ KEYS = [
     (1, 10),  # C#, A#
 ]
 
-BASE_SCALE = [0, 2, 4, 5, 7, 9, 11]
 
 CIRCLE_OF_FIFTHS = [5, 0, 7, 2, 9, 4, 11]
 
@@ -44,21 +43,9 @@ class Key:
 
         if self.sharps < 0:
             for i in range(-accidentals):
-                signature.append(list(reversed(CIRCLE_OF_FIFTHS))[i])
+                signature.append(list(reversed(CIRCLE_OF_FIFTHS))[i] - 1)
         else:
             for i in range(accidentals):
                 signature.append(CIRCLE_OF_FIFTHS[i] + 1)
 
         return signature
-
-    def get_scales(self):
-        self.validate()
-        root = self.sharps % 12
-
-        base_scale = []
-        current_root = root
-        for i in range(7):
-            base_scale.append((current_root + BASE_SCALE[i]) % 12)
-            current_root = (current_root + 12) % 12
-
-        return base_scale
