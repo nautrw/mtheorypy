@@ -17,15 +17,16 @@ class Scale(Key):
             base_scale.append((current_root + BASE_SCALE[i]) % 12)
             current_root = (current_root + 12) % 12
 
-        def modify(indices):
-            return [v-1 if i in indices
+        def modify(indices, flatten: bool = True):
+            return [v + (-1 if flatten else 1) if i in indices
                     else v for i, v in enumerate(base_scale)]
 
         # TODO: ADD MORE MODES
         scales_dict = {
             "major": {
                 "base": base_scale,
-                "pentatonic": base_scale[:3] + base_scale[4:6]
+                "pentatonic": base_scale[:3] + base_scale[4:6],
+                "dorian": modify([2, 6])
             },
             "minor": {
                 "base": modify([2, 5, 6])
