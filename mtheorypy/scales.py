@@ -30,6 +30,7 @@ class Scale(Key):
             "phrygian": modify([1, 2, 5, 6]),
             "lydian": modify([3], False),
             "mixolydian": modify([6]),
+            "locrian": modify([1, 2, 4, 5, 6])
         }
 
         return scales_dict
