@@ -23,14 +23,10 @@ class Scale(Key):
 
         # TODO: ADD MORE MODES
         scales_dict = {
-            "major": {
-                "base": base_scale,
-                "pentatonic": base_scale[:3] + base_scale[4:6],
-                "dorian": modify([2, 6])
-            },
-            "minor": {
-                "base": modify([2, 5, 6])
-            }
+            "major": base_scale,
+            "minor": modify([2, 5, 6]),
+            "pentatonic": base_scale[:3] + base_scale[4:6],
+            "dorian": modify([2, 6]),
         }
 
         return scales_dict
