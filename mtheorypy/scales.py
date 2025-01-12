@@ -17,15 +17,17 @@ class Scale(Key):
             base_scale.append((current_root + BASE_SCALE[i]) % 12)
             current_root = (current_root + 12) % 12
 
-        minor_scale = [v-1 if i in [2, 5, 6]
-                       else v for i, v in enumerate(base_scale)]
+        def modify(indices):
+            return [v-1 if i in indices
+                    else v for i, v in enumerate(base_scale)]
+
         # TODO: ADD MORE MODES
         scales_dict = {
             "major": {
                 "base": base_scale
             },
             "minor": {
-                "base": minor_scale
+                "base": modify([2, 5, 6])
             }
         }
 
