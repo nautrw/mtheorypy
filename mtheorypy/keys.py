@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 
-from scales import SCALES
-
 # (Major, Minor)
 KEYS = [
     (11, 8),  # Cb, Ab
@@ -52,3 +50,15 @@ class Key:
                 signature.append(CIRCLE_OF_FIFTHS[i] + 1)
 
         return signature
+
+    def get_scales(self):
+        self.validate()
+        root = self.sharps % 12
+
+        base_scale = []
+        current_root = root
+        for i in range(7):
+            base_scale.append((current_root + BASE_SCALE[i]) % 12)
+            current_root = (current_root + 12) % 12
+
+        return base_scale
