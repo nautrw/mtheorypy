@@ -17,8 +17,16 @@ class Scale(Key):
             base_scale.append((current_root + BASE_SCALE[i]) % 12)
             current_root = (current_root + 12) % 12
 
-        return base_scale
+        minor_scale = [v-1 if i in [2, 5, 6]
+                       else v for i, v in enumerate(base_scale)]
+        # TODO: ADD MORE MODES
+        scales_dict = {
+            "major": {
+                "base": base_scale
+            },
+            "minor": {
+                "base": minor_scale
+            }
+        }
 
-
-scale = Scale(-2)
-print(scale.get_signature())
+        return scales_dict
