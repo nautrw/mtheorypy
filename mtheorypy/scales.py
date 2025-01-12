@@ -28,7 +28,8 @@ class Scale(Key):
             "pentatonic": base_scale[:3] + base_scale[4:6],
             "dorian": modify([2, 6]),
             "phrygian": modify([1, 2, 5, 6]),
-            "lydian": modify([3], False)
+            "lydian": modify([3], False),
+            "mixolydian": modify([6]),
         }
 
         return scales_dict
