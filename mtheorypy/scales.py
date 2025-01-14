@@ -1,4 +1,4 @@
-from keys import Key
+from mtheorypy.keys import Key
 
 BASE_SCALE = [0, 2, 4, 5, 7, 9, 11]
 
